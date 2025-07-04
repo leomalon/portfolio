@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spinnaker&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --background-color: #F9F9F9;
+    --background-color-card: rgba(1, 1, 1, 0.02);
+    --title-color: #333333;
+    --card-title-color: black;
+    --subtitle-color: #333333;
+    --text-color: #333333;
+    --text-color-hover: rgba(51, 51, 51, 0.80);
+    --hover-color: rgb(0, 0, 0);
+}
+
+
+body{
+    display: grid;
+    grid-template-columns: 20px repeat(25, 1fr) 20px;
+    grid-template-rows: 30px repeat(25, 1fr) 30px;
+    max-width: 100vw; 
+    max-height: 100vh;
+    background-color: var(--background-color);
+}
+
+
+.header {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / -2;
+    grid-row: 2 / -2;
+    position: relative;
+    display: contents;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+#logo_container {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+    width: 70px;
+    height: 45px;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+ #logo_container img { /*This is much more specific */
+    width: 70px;
+    height: 45px;
+    opacity: 0;
+    transform: translateY(40px);
+
+}
+
+#name_container {
+    grid-column: 5 / 20;
+    grid-row: 2 / 4;
+    font-size: 3rem;
+    text-align: left;
+    align-self: center;
+    color: var(--title-color);
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 0px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+.nav-container {
+    grid-column: 5/ 10;
+    grid-row: 6 / 8;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-option1 a{
+    text-decoration: none;
+    color: var(--text-color-hover);
+    font-family: "Spinnaker", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-option1 a:hover{
+    color: var(--hover-color);
+}
+
+.nav-option2 a{
+    text-decoration: none;
+    color: var(--text-color-hover);
+    font-family: "Spinnaker", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.contact-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.contact-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-option2 a:hover{
+    color: var(--hover-color);
+}
+
+
+.contact-card {
+    background-color: var(--background-color);
+    padding: 2.5rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 450px;
+    width: 90%;
+    text-align: left;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.contact-overlay.active .contact-card {
+    transform: translateY(0);
+}
+
+.contact-card h2 {
+    color: var(--title-color);
+    font-family: "DM Serif Display", serif;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.contact-intro {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    font-family: "Spinnaker", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.contact-info {
+    margin: 1.5rem 0;
+    font-family: "Spinnaker", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.contact-info p {
+    color: var(--text-color);
+    font-family: "Spinnaker", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0.7rem 0;
+    font-size: 1rem;
+}
+
+.contact-name {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    text-align: right;
+    font-family: "Spinnaker", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s ease;
+    filter: brightness(0);
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+
+.information-container {
+    opacity: 0;
+    grid-column: 8/ 17;
+    grid-row: 6 / 26;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.information-card {
+    opacity: 0;
+    font-family: "Spinnaker", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1rem;
+    text-align: left;
+    align-self: center;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Container Styling */
+.stack-container {
+    position: absolute;
+    top: 65%;
+    height: 35%;
+    width: 100%;
+    padding: 10px 15px 10px 10px;
+    border: 1px solid rgba(0,0,0,0.3);
+    background-color: rgba(217, 217, 217, 0.20);
+    border-radius: 20px;
+    max-width: 500px;
+    font-family: "Spinnaker", sans-serif;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Title */
+.stack-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Description */
+.stack-description {
+    font-size: 0.8rem;
+    color: var(--text-color-hover);
+    margin-bottom: 15px;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Stack List */
+.stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Individual Stack Item */
+.stack-item {
+    display: flex;
+    align-items: center;
+    width: 45%; /* Two items per row */
+    gap: 10px;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Stack Icons */
+.stack-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+/* Text Formatting */
+.stack-item strong {
+    font-size: 1rem;
+    color: var(--card-title-color);
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stack-item span {
+    font-size: 0.80rem;
+    color: var(--text-color-hover);
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.photo-transition-container {
+    opacity: 0;
+    grid-column: 20/ 26;
+    grid-row: 6 / 17;
+    border: 1px solid rgba(0,0,0,0.3);
+    background-color: rgba(217, 217, 217, 0.20);
+    border-radius: 20px;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.photo-transition-card {
+    width: 95%;
+    height: 95%;
+    padding: 10px;
+    position: relative;
+}
+
+.photo-transition-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.photo-transition-card img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Clase para mostrar elementos */
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.fade-in-aditional {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: opacity 0.9s ease, transform 1.5s ease;
+}

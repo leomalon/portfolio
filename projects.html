@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyectos - Leonardo Malón Bazán</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <header>
+    <div id="logo_container">
+        <img src="images/logo_leo.png" alt="Leonardo" height="45px" width="70px">
+    </div>
+    <div id="name_container" >Leonardo Malón Bazán</div>
+  </header>
+
+  <div class="project-list-container">
+    <h3 class="project-title">Proyectos</h3>
+    <div class="projects-list">
+      <button class="project-btn active" onclick="showProject(0)">CotiLink</button>
+      <button class="project-btn" onclick="showProject(1)">ValenDesk</button>
+      <button class="project-btn" onclick="showProject(2)">Koi timer</button>
+      <button class="project-btn" onclick="showProject(3)">Ashventure</button>
+    </div>
+  </div>
+
+  <div id="project-container">
+    <div class="project-content active" id="cotilink-project">
+      <h2>CotiLink (2025)</h2>
+      <div class="project-content-link">Visita el proyecto: <a target="_blank" href="https://cotilink.up.railway.app">cotilink.up</a></div>
+      <div class="project-description" id="cotilink-videos">
+
+        <div class="image-project"><video src="images/cotilink_1.mp4"></div>
+
+        <strong>CotiLink</strong> es una aplicación web diseñada para que los administradores de negocios puedan dar seguimiento a sus cotizaciones. Ofrece una interfaz clara y funcional para registrar, 
+        visualizar y actualizar el estado de cada cotización, facilitando así la gestión comercial y la comunicación con los clientes.
+        <br>
+        <br>
+        🎯 <strong>Objetivo y Motivación</strong>
+        <br>
+        <br>
+        Este proyecto nació a partir de una <strong>necesidad concreta:</strong> 
+        muchos <strong>administradores de negocios</strong> o personas del área de ventas <strong>pierden oportunidades de venta</strong> por no tener una herramienta clara que 
+        les permita organizar y hacer seguimiento de sus cotizaciones. 
+        <strong>Cotilink resuelve este problema</strong> al centralizar todo en una sola plataforma accesible y fácil de usar.
+        <br>
+        <br>
+        🔄<strong>Flujo de Desarrollo</strong>
+        <br>
+        <br>
+        <strong>Planeamiento y diseño</strong> 
+        <br>
+        <br>
+        Inicialmente, <strong>investigue sobre herramientas actuales</strong>, entreviste a proveedores con los que había trabajado y consulté por las herramientas
+        actuales que usan para hacerle seguimiento a sus cotizaciones. La mayoría indicó que no tenía un sistema de seguimiento, otros indicaron que
+        tenían un sistema que era muy caro y que al ser independientes no podian pagarlo mensualmente y otros proveedores indicaron que encontraron
+        herramientas, pero eran complicadas de usar.
+        <br>
+        <br>
+        Luego definí mi <strong>hipótesis de valor y de crecimiento</strong> para mi idea siguiendo los conceptos del <strong>método Lean Startup.</strong>
+        <br>
+        <br>
+        Después, definí el <strong>MVP (Minimum Viable Product)</strong> con requisitos mínimos funcionales como el sistema de autenticación, la creación y eliminación de
+        cotizaciones, el campo para buscar cotizaciones y el envío automático de correos electrónicos. 
+        <br>
+        <br>
+        Finalmente, escogí las <strong>herramientas y el framework</strong> a usar para desplegar la página web.
+        <br>
+        <br>
+        🔄<strong>Flujo de Desarrollo</strong>
+        <br>
+        <br>
+        <strong>Planeamiento y diseño</strong> 
+        <br>
+        <br>
+        Definí las <strong>secciones principales</strong>: login, página de registro, tabla de cotizaciones principal, página de cancelación,
+        página de creación de cotizaciones y página de modificación de cotizaciones. 
+        Utilicé <strong>FIGMA para crear los layouts</strong> y el flujo de la página.
+        <br>
+        <br>
+
+        <div class="image-project"><video src="images/cotilink_2.mp4" ></div> 
+        
+        <strong>Desarrollo del Backend</strong> 
+        <br>
+        <br>
+        En este punto <strong>inicie el desarrollo de la aplicación</strong>, es decir, escribir código.
+        Primero definí la estructura de las carpetas según las aplicaciones definidas. El framework escogido para el desarrollo web fue 
+        <strong>Django</strong>. Para el sistema de autenticación se utilizó <strong>"django-allauth"</strong> especialmente para manejar el login
+        con <strong>"google"</strong>. 
+        <br>
+        <br>
+        Luego <strong>modelé la estructura de la base de datos</strong> en el que definí los campos, los tipos de datos aceptados y las relaciones
+        entre tablas.
+        A partir de las tablas de la base de datos <strong>generé las plantillas de los forms,</strong> la lógica de los forms para crear, leer, actualizar y
+        eliminar datos en la base de datos.
+        <br>
+        <br>
+        Utilicé los <strong>default views</strong> como "ListView", "CreateView", "UpdateView" y "DeleteView" que luego personalice según la lógica
+        de mi aplicación.
+        <br>
+        <br>
+        <div class="image-project"><video src="images/cotilink_3.mp4"></div>
+ 
+        <strong>Desarrollo del Frontend</strong> 
+        <br>
+        <br>
+        Organicé y desarrolle los <strong>templates de html</strong>, junto con los archivos de <strong>estilo css</strong>.
+        Dentro de los templates maneje <strong>variables de contexto</strong> para mostrar los datos de las bases de datos, según el usuario.
+        Además, dentro dentro de los templates utilicé <strong>template tags</strong> para cargar los archivos estáticos y extener plantillas base.
+        <br>
+        <br>
+        <div class="image-project"> <video src="images/cotilink_4.mp4"></video></div>
+
+        <strong>Deployment de la aplicación</strong> 
+        <br>
+        <br>
+        Para el deploy de la aplicación utilicé <strong>Railway</strong>. Publiqué mi código base en mi repositorio de<strong>GitHub</strong>.
+        Luego en Railway generé una base de datos "PostgreSQL" y conecte la base de datos con mi repositorio de Github. Finalmente, configure mis <strong>variables de entorno</strong> para
+        utilizarse en producción, como la contraseña del email host, del acceso a la base de datos, etc.
+        <br>
+        <div class="image-project"> <video src="images/cotilink_5.mp4"></video></div>
+
+
+
+      </div>
+    </div>
+    <div class="project-content" id="valendesk-project">
+      <h2>ValenDesk (2024)</h2>
+      <div class="project-content-link">Visita el proyecto: <a target="blank" href="https://leomalon.github.io/valentina">leomalon.github.io/valentina</a></div>
+      <div class="project-description" id="valendesk-videos">
+
+        <div class="image-project"><video src="images/valendesk_1.mp4"></div>
+        Esta es una aplicación web creada para acompañar a mi hermana en su primer ciclo universitario. 
+        Incluye herramientas simples y funcionales como una app de tareas, una app para tomar notas, 
+        y un sistema básico de login. El objetivo fue brindarle una plataforma personal para organizar su día a día académico.
+        <br>
+        <br>
+        🎯 <strong>Objetivo y Motivación</strong>
+        <br>
+        <br>
+        Quise crear un espacio digital personalizado para ayudar a mi hermana a 
+        mantenerse enfocada y organizada desde el inicio de la universidad. 
+        En lugar de depender de múltiples aplicaciones, esta página reúne lo esencial en un solo lugar, 
+        con una interfaz limpia y fácil de usar.
+        <br>
+        <br>
+        🔄<strong>Flujo de Desarrollo</strong>
+        <br>
+        <br>
+        <strong>Planeamiento y diseño</strong> 
+        <br>
+        <br>
+        Definí las secciones principales: login, espacio de registro de tareas y espacio de registro de notas. 
+        Luego ingresé a FIGMA para diseñar las vistas de las páginas. Me inspiré en los personajes favoritos de mi hermana
+        y sus colores favoritos. Además, diseñe el flujo de las páginas.
+
+        <br>
+        <br>
+        <strong>Desarrollo del sistema de login</strong> 
+        <br>
+        <br>
+        <div class="image-project"><img src="images/valendesk_login.jpg" alt=""></div>
+
+        Al ser una aplicación simple sin datos sensibles, la validación de usuario fue básica usando JavaScript y almacenamiento local.
+        No se usó una base de datos o un sistema de encriptado para almacenamiento de contraseñas. 
+
+
+        <br>
+        <br>
+        <strong>Desarrollo de la app de tareas</strong> 
+        <br>
+        <br>
+        <div class="image-project"><img src="images/valendesk_todoapp.jpg" alt=""></div>
+
+        En esta página se permite agregar tareas, nuevas, marcas tareas completadas o pendientes. 
+        También permite filtrar tareas por estado, eliminar tareas o todas la vez. 
+        <br>
+        <br>
+        En esta página el historial de tareas se guarda en el <strong>"Local Storage"</strong>, lo que es útil en este caso, ya que
+        al no funcionar con una base de datos, las tareas siguen ahí incluso si el usuario cierra sesión o cierra
+        el navegador.
+        <br>
+        <br>
+
+        Al cargar la página se llama la función <strong>"showTodos()"</strong> para mostrar las tareas
+        en pantalla. La función recorre todas las tareas almacenadas en "todosJson".
+        Las tareas se muestran como elementos HTML con un "checkbox" para marcar el estado, el nombre de la tarea 
+        y un botón para eliminar.
+        <br>
+        <br>
+
+        <div class="image-project"><img src="images/valendesk_code1.jpg" alt=""></div>
+
+        Para agregar una nueva tarea se tiene la función <strong>"addTodo()"</strong>. 
+        Cuando el usuario escribe una tarea y presionar <strong>"Enter"</strong>, se limpia el campo de entrada,
+        agregar la nueva tarea al inicio de la lista con estado "pending" y finalmente, se actualizar
+        el <strong>"localStorage"</strong> y se vuelve a mostrar la lista.
+        <br>
+        <br>
+        <div class="image-project"><img src="images/valendesk_code2.jpg" alt=""></div>
+        <br>
+        Para actualizar el estado de una tarea se usa la función <strong>"updateStatus()"</strong>. 
+        Al hacer click en el "checkbox", la tarea se marca y se cambia su estado a "completado" y si se desmarca, 
+        se vuelve a "pending" y se quita la clase. Finalmente, se actualiza el "LocalStorage".
+        <br>
+        <br>
+        Para borrar una tarea se usa la función <strong>"remove()"</strong> y al hacer click se elimina la tarea, 
+        según su índice en el arreglo "todosJson", se actualiza el "localstorage" y se vuelve a renderizar.
+
+        <br>
+        <br>
+        <div class="image-project"><img src="images/valendesk_code3.jpg" alt=""></div>
+
+        Para filtrar las tareas y mostrarlar se usa la función <strong>"filters"</strong>. 
+        Al hacer un click en un filtro, se activa el filtro y muestra las tareas que coinciden con el filtro 
+        seleccionado y se vuelve a llamar "showTodos()".
+        <br>
+        <br>
+        Finalmente, para eliminar todas las tareas se tiene la función <strong>"deleteAllButton"</strong>.
+        Se limpia el arreglo "todosJson", se limpia el "localStorage" y se actualiza la vista para mostrar la lista vacía.
+
+        <br>
+        <br>
+        <div class="image-project"><img src="images/valendesk_code4.jpg" alt=""></div>
+
+        <strong>Desarrollo de la app de notas</strong> 
+        <br>
+        <br>
+        <div class="image-project"><img src="images/valendesk_noteapp.jpg" alt=""></div>
+
+        En esta página se permite agregar notas con título y una pequeña descripción, como si tuvieras un board con <strong>sticky notes.</strong>
+
+
+      </div>
+    </div>
+    <div class="project-content" id="koitimer-project">
+      <h2>Koi timer (2025)</h2>
+      <div class="project-content-link">Descarga el proyecto: <a target="_blank" href="https://drive.google.com/drive/folders/1ZdvhQU_HJTdX9tqrtDUreRaKNT5gRqqi?usp=sharing">koi-timer</a></div>
+      <div class="project-description" id="koitimer-videos">
+        <div class="image-project"><video src="images/koitimer_1.mp4" controls></div>
+        Esta es una aplicación de escritorio creada para poder controlar mis tiempos de concentración. 
+        Incluye una de mis piezas favoritas en piano de Franz Liszt como música de fondo y una linda animación de peces koi.
+        El sistema de este timer está basado en la teoría de pomodoro de bloques de concentración seguidos de bloques de descanso.
+        <br>
+        <br>
+        🎯 <strong>Objetivo y Motivación</strong>
+        <br>
+        <br>
+        Quise crear un temporizador funcional capaz de crear un espacio estimulante para concentración y estudio. La idea surgió
+        a partir del temporizador que estaba usando como parte de las aplicaciones de Microsoft que si bien es funcional, estéticamente
+        no era de mi gusto, me parecía plana y aburrida, por lo que decidí crear una por mi cuenta. 
+        <br>
+        <br>
+        🔄<strong>Flujo de Desarrollo</strong>
+        <br>
+        <br>
+        <strong>Planeamiento y diseño</strong> 
+        <br>
+        <br>
+        Definí la lógica de funcionamiento del temporizador tomando en cuenta la teoría de bloques de tiempo de concentración. 
+        Luego ingresé a FIGMA para diseñar todas las vistas del temporizador, el aspecto del timer, fuentes y colores.
+
+        <br>
+        <br>
+        <strong>Desarrollo de la lógica y backend</strong> 
+        <br>
+        <br>
+        <div class="image-project"><video src="images/koitimer_2.mp4"></div>
+
+        Para este proyecto tuve que instalar <strong>node.js</strong> para poder correr <strong>javascript</strong> fuera del
+        navegador. Además, tuve que instalar el framework <strong>electron.js</strong>. En este caso utilice la asistencia del 
+        editor de código <strong>Cursor AI</strong> para agilizar mis tiempos de programación.
+        La lógica del timer funciona de la siguiente manera: Si el tiempo seleccionado es menor de 25 minutos, solo existe un bloque
+        único de 25 minutos sin descanso. Si el tiempo es igual a 25 minutos, existe un bloque de tiempo de 25 minutos más 5 minutos de descanso.
+        Si el bloque es mayor a 25 minutos entonces el tiempo total se divide en bloques de 25 minutos con 5 minutos de descanso entre bloques, en caso el tiempo total
+        no sea múltiplo de 25 minutos, se divide el tiempo total entre 25 minutos y el número entero será el número de bloques y el residuo será un bloque completo al final. 
+        <br>
+        <br>
+        Para configurar la aplicación generé un archivo <strong>package.json</strong> en dónde liste los scripts del proyecto, nombre de la aplicación y las configuraciones para
+        generar el ejecutable.
+
+        <br>
+        <br>
+        <strong>Desarrollo del estilo</strong> 
+        <br>
+        <br>
+        <div class="image-project"><video src="images/koitimer_3.mp4" ></div>
+        
+        Para este proyecto utilice mis habilidades de <strong>html, javascript y CSS</strong> para programar el frontend de la aplicación, ya que <strong>electron.js</strong>
+        empaqueta un navegador y <strong>node.js</strong>, lo cual hace más fácil definir el layout y el diseño de las vistas.
+        <br>
+        <br>
+        <strong>Generación de ejecutable e instalador</strong> 
+        <br>
+        <br>
+        <div class="image-project"><video src="images/koitimer_4.mp4"></div>
+        
+        Utilicé <strong>electron.js</strong> para empaquetar la aplicación en un ejecutable y para generar el instalador usé <strong>Inno Setup Compiler.</strong>
+
+      </div>
+    </div>
+
+    <div class="project-content" id="ashventure-project">
+      <h2>Ashventure (2024)</h2>
+      <div class="project-content-link">Descarga el proyecto: <a href="https://drive.google.com/file/d/1okOP2jxERV_CMgGr16Fq_TvyzRvo2lrx/view?usp=sharing"></a>asventure</div>
+      <div class="project-description" id="ashventure-videos">
+        <div class="image-project"><video src="images/ashventure.mp4" controls></div>
+        Este es un juego que hice como regalo inspirado en <strong>Fire boy and Water girl</strong>. El personaje principal tiene que
+        conseguir las monedas necesarias en las diferentes plataformas y deberá tener cuidado con el fuego que está por todos lados.
+        Al obtener todas las monedas el juego termina muestra una serie de fotos del recuerdo.
+        <br>
+        <br>
+        🎯 <strong>Objetivo y Motivación</strong>
+        <br>
+        <br>
+        Quise crear un regalo diferente a los que se suelen dar, entonces decidí combinar mi pasión que es programar y
+        algo que me gusta que son los videojuegos. 
+        <br>
+        <br>
+        🔄<strong>Flujo de Desarrollo</strong>
+        <br>
+        <br>
+        <strong>Planeamiento y diseño</strong> 
+        <br>
+        <br>
+        Definí la lógica del juego, niveles, dificultad y modo de jugar. Para el diseño busqué imágenes de internet para el fondo y las plataformas. Para
+        el diseño del personaje principal tome una de mis fotos favoritas y la pasé a CHATGPT 
+        para que generara un avatar pixeleado para darle ese aspecto de juego.
+
+        <br>
+        <br>
+        <strong>Desarrollo del juego</strong> 
+        <br>
+        <br>
+        <div class="image-project"><video src="images/ashventure1.mp4" autoplay loop muted></div>
+
+        Para este proyecto utilicé <strong>python</strong> y la librería <strong>pygame</strong> para facilitar el desarrollo del juego. Para el diseño del juego
+        utilicé FIGMA y además usé CHATGPT para realizar las imágenes en formato pixeleado.
+        Finalmente, empaqueté el juego en un ejecutable usando la librería <strong>auto-py-to-exe.</strong>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="stack-container">
+    <div class="stack-content active">
+
+        <h2>Stack</h2>
+        <div class="project-stack">
+          <img src="images/html5.png" >
+          <img src="images/css.png" >
+          <img src="images/python.png" >
+          <img src="images/django.png" >
+          <img src="images/railway.png" >
+          <img src="images/postgresql.png" >
+          <img src="images/figma.png" >
+          <img src="images/javascript.png" >
+          <img src="images/notion.png" >
+          <img src="images/vscode.png" >
+          <img src="images/git.png" >
+          <img src="images/github.png" >
+
+        </div>
+
+    </div>
+
+    <div class="stack-content">
+
+        <h2>Stack</h2>
+        <div class="project-stack">
+
+          <img src="images/html5.png" >
+          <img src="images/css.png" >
+          <img src="images/javascript.png" >
+          <img src="images/github.png" >
+          <img src="images/vscode.png">
+
+
+        </div>
+
+    </div>
+
+    <div class="stack-content">
+
+        <h2>Stack</h2>
+        <div class="project-stack">
+          <img src="images/html5.png" >
+          <img src="images/css.png" >
+          <img src="images/javascript.png" >
+          <img src="images/electronjs.png" >
+          <img src="images/vscode.png">
+          <img src="images/nodejs.png" >
+
+
+        </div>
+      
+    </div>
+
+    <div class="stack-content">
+
+        <h2>Stack</h2>
+        <div class="project-stack">
+          <img src="images/python.png" >
+          <img src="images/vscode.png">
+          <img src="images/pygame.png" >
+
+        </div>
+    </div>
+        <nav class="nav-container">
+            
+            <div class="nav-option1"><a href="index.html">-> Atrás</a></div>
+            <div class="nav-option2"><a href="#">-> Háblame</a></div>
+            <!-- <div class="nav-option4"><a href="#">-> Servicios</a></div> -->
+            
+        </nav>
+         <div class="contact-overlay" id="contactOverlay">
+        <div class="contact-card">
+            <h2>-- Contáctame --</h2>
+            <p class="contact-intro">Cuéntame que necesitas automatizar o que necesitas desarrollar y lo podemos hacer realidad.</p>
+            
+            <div class="contact-info">
+                <p>Email: rmalonbazan@gmail.com</p>
+                <p>Celular: +51 964 776 654</p>
+            </div>
+            
+            <p class="contact-name">Leonardo Malón Bazán</p>
+            
+            <div class="social-icons">
+                <a href="https://wa.me/51964776654" target="_blank">
+                    <img src="images/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/tu_usuario" target="_blank">
+                    <img src="images/instagram.png" alt="Instagram">
+                </a>
+                <a href="https://www.linkedin.com/in/tu_usuario" target="_blank">
+                    <img src="images/linkedin.png" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('fade-in');
+    const contactOverlay = document.getElementById("contactOverlay");
+
+    // Manejador para mostrar la tarjeta de contacto
+    document.querySelector('.nav-option2 a').addEventListener('click', (e) => {
+      e.preventDefault();
+      contactOverlay.classList.add('active');
+    });
+
+    // Cerrar la tarjeta al hacer clic fuera de ella
+    contactOverlay.addEventListener('click', (e) => {
+      if (e.target === contactOverlay) {
+        contactOverlay.classList.remove('active');
+      }
+    });
+
+    // Cerrar la tarjeta con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && contactOverlay.classList.contains('active')) {
+        contactOverlay.classList.remove('active');
+      }
+    });
+
+    // ✅ FIXED: Hash logic now works because it's not in a nested DOMContentLoaded
+    const hash = window.location.hash.substring(1); // e.g. "cotilink"
+    const projectIndexMap = {
+      cotilink: 0,
+      valendesk: 1,
+      koitimer: 2,
+      ashventure: 3
+    };
+
+    if (hash && projectIndexMap.hasOwnProperty(hash)) {
+      showProject(projectIndexMap[hash]);
+    }
+  });
+
+  function showProject(index) {
+    const contents = document.querySelectorAll('.project-content');
+    const buttons = document.querySelectorAll('.project-btn');
+    const stack_content = document.querySelectorAll('.stack-content');
+
+    contents.forEach((c, i) => {
+      c.classList.toggle('active', i === index);
+    });
+
+    buttons.forEach((b, i) => {
+      b.classList.toggle('active', i === index);
+    });
+
+    stack_content.forEach((c, i) => {
+      c.classList.toggle('active', i === index);
+    });
+
+    const allVideos = document.querySelectorAll('.project-content video');
+    allVideos.forEach(video => {
+      video.pause();
+      video.currentTime = 0;
+    });
+
+    // ✅ Add autoplay and loop when Ashventure is activated
+
+    if (index === 0) {
+      const allvideos_cotilink=document.querySelectorAll('.project-content #cotilink-videos video')
+      allvideos_cotilink.forEach(video => {
+      video.autoplay=true;
+      video.loop=true;
+      video.play();
+      video.currentTime = 0;
+    });
+    }
+
+    if (index === 1) {
+     const allvideos_valendesk=document.querySelectorAll('.project-content #valendesk-videos video')
+      allvideos_valendesk.forEach(video => {
+      video.autoplay=true;
+      video.loop=true;
+      video.play();
+      video.currentTime = 0;
+    });
+    }
+
+
+
+    if (index === 3) {
+     const allvideos_ashventure=document.querySelectorAll('.project-content #ashventure-videos video')
+      allvideos_ashventure.forEach(video => {
+      video.autoplay=true;
+      video.loop=true;
+      video.play();
+      video.currentTime = 0;
+    });
+    }
+
+    if (index===2){
+    const allvideos_koitimer=document.querySelectorAll('.project-content #koitimer-videos video')
+        allvideos_koitimer.forEach(video => {
+        video.autoplay=true;
+        video.loop=true;
+        video.play();
+        video.currentTime = 0;
+      });
+    }
+  }
+
+</script>
+
+</body>
+</html>
