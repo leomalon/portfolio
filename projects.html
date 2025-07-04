@@ -407,14 +407,8 @@
 
         </div>
     </div>
-        <nav class="nav-container">
-            
-            <div class="nav-option1"><a href="index.html">-> Atrás</a></div>
-            <div class="nav-option2"><a href="#">-> Háblame</a></div>
-            <!-- <div class="nav-option4"><a href="#">-> Servicios</a></div> -->
-            
-        </nav>
-         <div class="contact-overlay" id="contactOverlay">
+    
+    <div class="contact-overlay" id="contactOverlay">
         <div class="contact-card">
             <h2>-- Contáctame --</h2>
             <p class="contact-intro">Cuéntame que necesitas automatizar o que necesitas desarrollar y lo podemos hacer realidad.</p>
@@ -440,21 +434,30 @@
         </div>
     </div>
 
+    <nav class="nav-container" id="nav-buttons">
+        
+        <div class="nav-option1"><a href="index.html">-> Atrás</a></div>
+        <div class="nav-option2"><a id="button-hablame" href="#">-> Háblame</a></div>
+        <!-- <div class="nav-option4"><a href="#">-> Servicios</a></div> -->
+        
+    </nav>
+
   </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('fade-in');
     const contactOverlay = document.getElementById("contactOverlay");
-    //Activamos los videos de cotilink
-    const button_cotilink = document.getElementById("cotilink-button");
-    button_cotilink.click();
+    const buttonHablame = document.getElementById("button-hablame");
+
     
     // Manejador para mostrar la tarjeta de contacto
-    document.querySelector('.nav-option2 a').addEventListener('click', (e) => {
+    buttonHablame.addEventListener('click', (e) => {
       e.preventDefault();
+      console.log("hola");
       contactOverlay.classList.add('active');
     });
+
 
     // Cerrar la tarjeta al hacer clic fuera de ella
     contactOverlay.addEventListener('click', (e) => {
@@ -483,6 +486,7 @@
       showProject(projectIndexMap[hash]);
     }
   });
+
 
   function showProject(index) {
     const contents = document.querySelectorAll('.project-content');
