@@ -223,6 +223,8 @@ body{
     grid-row: 6 / 26;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    max-height: 80dvh;
+    height: 100%;
 }
 
 .information-card {
@@ -239,9 +241,6 @@ body{
 
 /* Container Styling */
 .stack-container {
-    position: absolute;
-    top: 65%;
-    height: 35%;
     width: 100%;
     padding: 10px 15px 10px 10px;
     border: 1px solid rgba(0,0,0,0.3);
@@ -251,6 +250,7 @@ body{
     font-family: "Spinnaker", sans-serif;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-top: 25px;
 }
 
 /* Title */
@@ -285,7 +285,8 @@ body{
 .stack-item {
     display: flex;
     align-items: center;
-    width: 45%; /* Two items per row */
+    flex: 1 1 200px;
+    min-width: 150px;
     gap: 10px;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -294,7 +295,8 @@ body{
 /* Stack Icons */
 .stack-item img {
     width: 40px;
-    height: 40px;
+    height: auto;
+    max-width: 100%;
     border-radius: 5px;
     object-fit: contain;
 }
