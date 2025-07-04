@@ -447,14 +447,8 @@
     document.body.classList.add('fade-in');
     const contactOverlay = document.getElementById("contactOverlay");
     //Activamos los videos de cotilink
-    const allvideos_cotilink=document.querySelectorAll('.project-content #cotilink-videos video')
-    allvideos_cotilink.forEach(video => {
-    video.autoplay=true;
-    video.loop=true;
-    video.play();
-    video.currentTime = 0;
-    });
-    
+    const button_cotilink = document.getElementById("cotilink-button");
+    button_cotilink.click();
     
     // Manejador para mostrar la tarjeta de contacto
     document.querySelector('.nav-option2 a').addEventListener('click', (e) => {
